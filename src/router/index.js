@@ -10,7 +10,6 @@ const router = new VueRouter({routes});
 
 router.afterEach((to, from) => {
     window.onbeforeunload = null;
-    console.log('from:', from, 'to:', to);
 });
 
 export default router;

@@ -98,7 +98,6 @@
         name: "ExpenseListIndex",
         data() {
             return {
-                currencySelector:false,
                 dialog: false,
                 headers: [
                     {text: 'Description', align: 'left', sortable: true, value: "name"},
@@ -119,7 +118,9 @@
                     price: 0,
                     currency: 'USD',
                     converted: 0,
-                }
+                },
+                currencySelector:'',
+                cronJob:''
             }
         },
         computed: {
@@ -140,7 +141,7 @@
 
         created() {
             this.initialize();
-            this.getCurrencies();
+            this.cronJob = this.scheduleTask(4000,this.updateRecords);
         },
 
         methods: {
@@ -231,6 +232,15 @@
                     let currency = currency || {conversion: 1};
                     record['converted'] = Number(Math.round(((record.price / expenseCurrency.conversion) * currency.conversion) + 'e2') + 'e-2');
                 })
+            },
+            updateRecords(){
+                this.getCurrencies();
+                this.updateCurrency(this.currencySelector);
+            },
+            scheduleTask(time,callback,props = false){
+                return setInterval(()=>{
+                    callback(props);
+                },time);
             }
         }
     }
