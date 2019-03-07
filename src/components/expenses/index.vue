@@ -74,6 +74,10 @@
                 <v-btn color="primary" @click="initialize">Reset</v-btn>
             </template>
         </v-data-table>
+        <v-footer>
+            <v-spacer></v-spacer>
+            <div>Total expenses : {{ getTotalExpenses()}} USD</div>
+        </v-footer>
     </div>
 </template>
 
@@ -202,7 +206,14 @@
                 }
                 this.close()
             },
+            getTotalExpenses() {
+                let total = 0;
+                this.records.forEach((record) => {
+                    total += record.converted;
+                });
 
+                return Math.round(total * 100) / 100;
+            },
 
         }
     }
