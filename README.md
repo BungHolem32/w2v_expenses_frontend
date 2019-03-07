@@ -1,6 +1,7 @@
 # WAY2VAT Home Assignment - Ui Part
 
-this project was built as part of home assignment of way2vat company:
+This project was built as part of home assignment of way2vat company
+This project was built on Vue Framework:
 
 Here are the requirements:
 1. Create an empty table (expenses) with the following column:
@@ -21,8 +22,6 @@ table and the total amount should display the updated data.
 1. in order to see full functionality of the project you must first install backend part in the following link:  
 https://github.com/BungHolem32/w2v_currencies_api_backend.git
 
-This project was built with Vue Framework:
-
 ### Installation
 
  1. clone project https://github.com/BungHolem32/w2v_expenses_frontend.git
@@ -38,4 +37,4 @@ This project was built with Vue Framework:
  
  6.paste this url inside your browser `http://localhost:8081`
 
- - if anything work right you should see expenses dashboard in action
+ If anything work right you should see expenses dashboard in action
