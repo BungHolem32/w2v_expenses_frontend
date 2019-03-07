@@ -1,6 +1,16 @@
 <template>
     <div class="expense-page">
         <v-toolbar flat color="white">
+            <v-toolbar-title>
+                <v-select v-model="currencySelector"
+                          :items="currencies"
+                          item-text="name"
+                          item-value="conversion"
+                          label="SELECT CURRENCY"
+                          return-object
+                          @change="updateCurrency"
+                ></v-select>
+            </v-toolbar-title>
             <v-spacer></v-spacer>
             <v-dialog v-model="dialog" max-width="500px">
                 <template v-slot:activator="{ on }">
@@ -76,7 +86,7 @@
         </v-data-table>
         <v-footer>
             <v-spacer></v-spacer>
-            <div>Total expenses : {{ getTotalExpenses()}} USD</div>
+            <div>Total expenses : {{ getTotalExpenses()}} {{currencySelector.name || 'USD'}}</div>
         </v-footer>
     </div>
 </template>
@@ -88,6 +98,7 @@
         name: "ExpenseListIndex",
         data() {
             return {
+                currencySelector:false,
                 dialog: false,
                 headers: [
                     {text: 'Description', align: 'left', sortable: true, value: "name"},
@@ -214,7 +225,13 @@
 
                 return Math.round(total * 100) / 100;
             },
-
+            updateCurrency(currency) {
+                this.records.forEach(async (record) => {
+                    let expenseCurrency = await this.getConversionRateByName(record.currency);
+                    let currency = currency || {conversion: 1};
+                    record['converted'] = Number(Math.round(((record.price / expenseCurrency.conversion) * currency.conversion) + 'e2') + 'e-2');
+                })
+            }
         }
     }
 </script>
