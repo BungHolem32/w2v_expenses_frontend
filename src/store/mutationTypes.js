@@ -1,0 +1,2 @@
+export const SET_CURRENT_MODEL = 'SET_CURRENT_MODEL';
+export const SET_CURRENCIES = 'SET_CURRENCIES';
