@@ -152,32 +152,32 @@
             async initialize() {
                 let records = [
                     {
-                        name: 'ILS trading',
-                        price: 10,
+                        name: 'SpeedSteak Gel',
+                        price: 7,
                         currency: 'ILS',
                         converted: 0
                     },
                     {
-                        name: 'EUR example2',
-                        price: 30,
+                        name: 'Iphone X',
+                        price: 3000,
                         currency: 'ILS',
                         converted: 0
                     },
                     {
-                        name: 'GDT brand',
-                        price: 24,
+                        name: 'Dell Xps 9560',
+                        price: 1040,
                         currency: 'GBP',
                         converted: 0
                     },
                     {
-                        name: 'EURO change',
-                        price: 82,
+                        name: 'Jbl 483 Earphones',
+                        price: 40,
                         currency: 'EUR',
                         converted: 0
                     },
                     {
-                        name: 'candian Currency',
-                        price: 33,
+                        name: 'Samsung Tv',
+                        price: 2034,
                         currency: 'CAD',
                         converted: 0
                     },
